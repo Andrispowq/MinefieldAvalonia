@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Avalonia", "MinefieldGame.Avalonia\MinefieldGame.Avalonia.csproj", "{7908CABC-3F67-4CAB-80E5-11E25AF1073B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Avalonia.Android", "MinefieldGame.Avalonia.Android\MinefieldGame.Avalonia.Android.csproj", "{EFC468E5-79AB-4E4B-91BC-53EE69511791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Avalonia.Desktop", "MinefieldGame.Avalonia.Desktop\MinefieldGame.Avalonia.Desktop.csproj", "{552E2BFC-2F11-4427-8A79-1CDCA8305176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Model", "MinefieldGame.Model\MinefieldGame.Model.csproj", "{FA612234-8594-4FAB-B456-D95C9283FC09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Persistence", "MinefieldGame.Persistence\MinefieldGame.Persistence.csproj", "{CB56C985-0230-4B35-AEFE-CD85D2AF10E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Tests", "MinefieldGame.Tests\MinefieldGame.Tests.csproj", "{EEEB5107-ADAD-45A7-AD9C-2C280EDC816F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7908CABC-3F67-4CAB-80E5-11E25AF1073B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7908CABC-3F67-4CAB-80E5-11E25AF1073B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7908CABC-3F67-4CAB-80E5-11E25AF1073B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7908CABC-3F67-4CAB-80E5-11E25AF1073B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA612234-8594-4FAB-B456-D95C9283FC09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA612234-8594-4FAB-B456-D95C9283FC09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA612234-8594-4FAB-B456-D95C9283FC09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA612234-8594-4FAB-B456-D95C9283FC09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB56C985-0230-4B35-AEFE-CD85D2AF10E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB56C985-0230-4B35-AEFE-CD85D2AF10E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB56C985-0230-4B35-AEFE-CD85D2AF10E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB56C985-0230-4B35-AEFE-CD85D2AF10E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEEB5107-ADAD-45A7-AD9C-2C280EDC816F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEEB5107-ADAD-45A7-AD9C-2C280EDC816F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEEB5107-ADAD-45A7-AD9C-2C280EDC816F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEB5107-ADAD-45A7-AD9C-2C280EDC816F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

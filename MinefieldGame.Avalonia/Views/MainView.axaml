@@ -1,0 +1,72 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MinefieldGame.Avalonia.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+             x:Class="MinefieldGame.Avalonia.Views.MainView"
+             x:DataType="vm:MinefieldGameViewModel">
+  <Canvas x:Name="canvas">
+  
+    <Button x:Name="newGame"
+            Width="200"
+            Height="100"
+            Canvas.Left="540"
+            Canvas.Top="150"
+            Content="New game"
+            IsVisible="{Binding ShowNewGameButton}"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Command="{Binding NewGameCommand}" />
+
+    <Button x:Name="loadGame"
+            Width="200"
+            Height="100"
+            Canvas.Left="540"
+            Canvas.Top="300"
+            Content="Load game"
+            IsVisible="{Binding ShowLoadGameButton}"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Command="{Binding LoadGameCommand}" />
+
+    <Button x:Name="exitGame"
+            Width="200"
+            Height="100"
+            Canvas.Left="540"
+            Canvas.Top="450"
+            Content="Exit game"
+            IsVisible="{Binding ShowExitGameButton}"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Command="{Binding ExitGameCommand}" />
+
+    <Button x:Name="saveGame"
+            Width="200"
+            Height="100"
+            Canvas.Left="540"
+            Canvas.Top="150"
+            Content="Save game"
+            IsVisible="{Binding ShowSaveGameButton}"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Command="{Binding SaveGameCommand}" />
+
+    <Button x:Name="quitGame"
+            Width="200"
+            Height="100"
+            Canvas.Left="540"
+            Canvas.Top="450"
+            Content="Quit game"
+            IsVisible="{Binding ShowQuitGameButton}"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Command="{Binding QuitGameCommand}" />
+
+    <Rectangle x:Name="submarine"
+               Width="200" Height="100"
+               Canvas.Left="600" Canvas.Top="400"
+               IsVisible="{Binding HasSubmarine}" />
+    
+  </Canvas>
+</UserControl>
