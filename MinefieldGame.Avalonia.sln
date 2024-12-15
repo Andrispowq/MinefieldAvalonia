@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Avalonia", "MinefieldGame.Avalonia\MinefieldGame.Avalonia.csproj", "{7908CABC-3F67-4CAB-80E5-11E25AF1073B}"
 EndProject
@@ -27,8 +27,10 @@ Global
 		{7908CABC-3F67-4CAB-80E5-11E25AF1073B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Release|Any CPU.ActiveCfg = Release|Any CPU

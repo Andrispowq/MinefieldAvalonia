@@ -8,5 +8,5 @@
         x:Class="MinefieldGame.Avalonia.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="MinefieldGame.Avalonia">
-        <views:MainView />
+        <views:MainView x:Name="view" />
 </Window>

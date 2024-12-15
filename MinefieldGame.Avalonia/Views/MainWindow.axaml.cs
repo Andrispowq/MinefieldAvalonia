@@ -1,4 +1,6 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Input;
+using System;
 
 namespace MinefieldGame.Avalonia.Views;
 

@@ -1,4 +1,5 @@
-﻿using MinefieldGame.Model.Math;
+﻿using Avalonia.Media;
+using MinefieldGame.Model.Math;
 using MinefieldGame.Model.Mines;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,23 @@ namespace MinefieldGame.Avalonia.ViewModels
         private Point2D _position;
         private Point2D _gameBounds;
 
-        public IDisplayable? Displayable { get; set; }
-
         public Mine Mine { get; init; }
 
         public double Width => Mine.Size.X;
         public double Height => Mine.Size.Y;
         public Point2D Size => Mine.Size;
+
+        private IBrush _brush;
+
+        public IBrush Brush
+        {
+            get => _brush;
+            set
+            {
+                _brush = value;
+                OnPropertyChanged(nameof(Brush));
+            }
+        }
 
         public Point2D Position
         {
@@ -40,6 +51,8 @@ namespace MinefieldGame.Avalonia.ViewModels
             Mine = mine;
             _position = mine.Position;
             _gameBounds = gameBounds;
+
+            _brush = Brushes.Transparent;
         }
 
         public bool CheckIfMineEvaded()
@@ -55,11 +68,6 @@ namespace MinefieldGame.Avalonia.ViewModels
         public void UpdatePosition()
         {
             Position = Mine.Position;
-
-            if (Displayable != null)
-            {
-                Displayable.Position = Position;
-            }
         }
     }
 }

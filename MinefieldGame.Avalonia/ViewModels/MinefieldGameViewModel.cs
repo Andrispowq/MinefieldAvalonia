@@ -14,6 +14,7 @@ namespace MinefieldGame.Avalonia.ViewModels
 {
     public class MinefieldGameViewModel : ViewModelBase
     {
+        private IInputHandler _inputHandler;
         private IFileManager<GameState> _fileManager;
         private ViewState _viewState = ViewState.MainMenu;
         private Point2D _gameBounds;
@@ -30,11 +31,12 @@ namespace MinefieldGame.Avalonia.ViewModels
 
         public bool HasSubmarine => _submarine != null;
 
-        public ObservableCollection<MineViewModel> Mines { get; set; }
+        public ObservableCollection<MineViewModel> Mines { get; private set; }
+
         public SubmarineViewModel? Submarine 
         {
             get => _submarine;
-            set
+            private set
             {
                 if (value != _submarine)
                 {
@@ -65,6 +67,8 @@ namespace MinefieldGame.Avalonia.ViewModels
         }
 
         public DelegateCommand NewGameCommand { get; }
+        public DelegateCommand LoadGameFDCommand { get; }
+        public DelegateCommand SaveGameFDCommand { get; }
         public DelegateCommand SaveGameCommand { get; }
         public DelegateCommand LoadGameCommand { get; }
         public DelegateCommand QuitGameCommand { get; } //Quits the current game to the stopped menu
@@ -76,17 +80,23 @@ namespace MinefieldGame.Avalonia.ViewModels
         public event EventHandler? GameEnded;
         public event EventHandler? GamePrepared;
         public event EventHandler? GameUpdated;
+        public event EventHandler? LoadGame;
+        public event EventHandler? SaveGame;
         public event EventHandler<MineViewModel>? MineAdded;
         public event EventHandler<ViewState>? ViewStateUpdated;
 
         public MinefieldGameViewModel(IInputHandler inputHandler, ITimer timer, Point2D gameBounds)
         {
+            _inputHandler = inputHandler;
             _gameBounds = gameBounds;
 
             _fileManager = new GameFileManager<GameState>();
             GameManager = new GameManager(_fileManager, inputHandler, timer);
 
             Mines = new ObservableCollection<MineViewModel>();
+
+            LoadGameFDCommand = new DelegateCommand(param => LoadGame?.Invoke(this, EventArgs.Empty));
+            SaveGameFDCommand = new DelegateCommand(param => SaveGame?.Invoke(this, EventArgs.Empty));
 
             NewGameCommand = new DelegateCommand(param => OnNewGame());
             LoadGameCommand = new DelegateCommand(param =>
@@ -170,6 +180,7 @@ namespace MinefieldGame.Avalonia.ViewModels
             Mines.Clear();
 
             GameManager?.NewGame();
+            GameManager?.StartGame();
             ViewState = ViewState.Play;
         }
 
@@ -191,12 +202,16 @@ namespace MinefieldGame.Avalonia.ViewModels
         private void OnQuitGame()
         {
             GameManager?.EndGame();
+            Mines.Clear();
+
+            Submarine = null;
             ViewState = ViewState.MainMenu;
         }
 
         private void OnExitGame()
         {
             GameManager?.EndGame();
+            Submarine = null;
             ViewState = ViewState.MainMenu;
 
             GameExited?.Invoke(this, EventArgs.Empty);

@@ -5,9 +5,8 @@
              xmlns:vm="clr-namespace:MinefieldGame.Avalonia.ViewModels"
              mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
              x:Class="MinefieldGame.Avalonia.Views.MainView"
-             x:DataType="vm:MinefieldGameViewModel">
-  <Canvas x:Name="canvas">
-  
+             x:DataType="vm:MinefieldGameViewModel">  
+  <Canvas x:Name="canvas" Width="1280" Height="720">
     <Button x:Name="newGame"
             Width="200"
             Height="100"
@@ -17,7 +16,8 @@
             IsVisible="{Binding ShowNewGameButton}"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Command="{Binding NewGameCommand}" />
+            Command="{Binding NewGameCommand}"
+            Opacity="1.0" />
 
     <Button x:Name="loadGame"
             Width="200"
@@ -28,7 +28,8 @@
             IsVisible="{Binding ShowLoadGameButton}"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Command="{Binding LoadGameCommand}" />
+            Command="{Binding LoadGameFDCommand}"
+            Opacity="1.0" />
 
     <Button x:Name="exitGame"
             Width="200"
@@ -39,7 +40,8 @@
             IsVisible="{Binding ShowExitGameButton}"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Command="{Binding ExitGameCommand}" />
+            Command="{Binding ExitGameCommand}"
+            Opacity="1.0" />
 
     <Button x:Name="saveGame"
             Width="200"
@@ -50,7 +52,8 @@
             IsVisible="{Binding ShowSaveGameButton}"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Command="{Binding SaveGameCommand}" />
+            Command="{Binding SaveGameFDCommand}"
+            Opacity="1.0" />
 
     <Button x:Name="quitGame"
             Width="200"
@@ -61,12 +64,36 @@
             IsVisible="{Binding ShowQuitGameButton}"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Command="{Binding QuitGameCommand}" />
+            Command="{Binding QuitGameCommand}"
+            Opacity="1.0" />
 
     <Rectangle x:Name="submarine"
-               Width="200" Height="100"
-               Canvas.Left="600" Canvas.Top="400"
-               IsVisible="{Binding HasSubmarine}" />
-    
+               Width="{Binding Submarine.Size.X}"
+               Height="{Binding Submarine.Size.Y}"
+               Canvas.Left="{Binding Submarine.Position.X}"
+               Canvas.Top="{Binding Submarine.Position.Y}"
+               IsVisible="{Binding HasSubmarine}"
+               Fill="{Binding Submarine.Brush}" />
+
+    <ItemsControl ItemsSource="{Binding Mines}">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+          <Canvas Width="1280" Height="720" />
+        </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+           <Rectangle Width="{Binding Size.X}"
+                      Height="{Binding Size.Y}"
+                      Fill="{Binding Brush}" />
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+      <ItemsControl.Styles>
+        <Style Selector="ContentPresenter">
+          <Setter Property="Canvas.Left" Value="{Binding Position.X}" />
+          <Setter Property="Canvas.Top" Value="{Binding Position.Y}" />
+        </Style>
+      </ItemsControl.Styles>
+    </ItemsControl>
   </Canvas>
 </UserControl>

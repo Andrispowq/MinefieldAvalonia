@@ -1,4 +1,6 @@
-﻿using MinefieldGame.Model;
+﻿using Avalonia.Animation;
+using Avalonia.Media;
+using MinefieldGame.Model;
 using MinefieldGame.Model.Math;
 using MinefieldGame.Model.Mines;
 using System;
@@ -13,14 +15,24 @@ namespace MinefieldGame.Avalonia.ViewModels
     {
         private Point2D _position;
         private Point2D _gameBounds;
-        
-        public IDisplayable? Displayable { get; set; }
 
         public Submarine Submarine { get; init; }
 
         public double Width => Submarine.Size.X;
         public double Height => Submarine.Size.Y;
         public Point2D Size => Submarine.Size;
+
+        private IBrush _brush;
+
+        public IBrush Brush
+        {
+            get => _brush;
+            set 
+            {
+                _brush = value;
+                OnPropertyChanged(nameof(Brush));
+            }
+        }
 
         public Point2D Position
         {
@@ -40,14 +52,16 @@ namespace MinefieldGame.Avalonia.ViewModels
             Submarine = submarine;
             _position = submarine.Position;
             _gameBounds = gameBounds;
+
+            _brush = Brushes.Transparent;
         }
 
         private Point2D AdjustPosition(Point2D point)
         {
             if (point.X < 0) point.X = 0;
             if (point.Y < 0) point.Y = 0;
-            if (point.X >= _gameBounds.X) point.X = _gameBounds.X;
-            if (point.Y >= _gameBounds.Y) point.Y = _gameBounds.Y;
+            if (point.X >= (_gameBounds.X - Width)) point.X = _gameBounds.X - (int)Width;
+            if (point.Y >= (_gameBounds.Y - Height)) point.Y = _gameBounds.Y - (int)Height;
 
             return point;
         }
@@ -55,11 +69,6 @@ namespace MinefieldGame.Avalonia.ViewModels
         public void UpdatePosition()
         {
             Position = Submarine.Position;
-
-            if (Displayable != null)
-            {
-                Displayable.Position = Position;
-            }
         }
     }
 }
