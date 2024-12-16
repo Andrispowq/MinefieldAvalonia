@@ -2,11 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:MinefieldGame.Avalonia.ViewModels"
+             xmlns:vm="clr-namespace:MinefieldGame.Common.ViewModels"
              mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
-             x:Class="MinefieldGame.Avalonia.Views.MainView"
-             x:DataType="vm:MinefieldGameViewModel">  
-  <Canvas x:Name="canvas" Width="1280" Height="720">
+             x:Class="MinefieldGame.Common.Views.MainView"
+             x:DataType="vm:MinefieldGameViewModel">
+  <Canvas x:Name="canvas" Width="1280" Height="720" Background="White">
     <Button x:Name="newGame"
             Width="200"
             Height="100"
@@ -72,8 +72,11 @@
                Height="{Binding Submarine.Size.Y}"
                Canvas.Left="{Binding Submarine.Position.X}"
                Canvas.Top="{Binding Submarine.Position.Y}"
-               IsVisible="{Binding HasSubmarine}"
-               Fill="{Binding Submarine.Brush}" />
+               IsVisible="{Binding HasSubmarine}">
+        <Rectangle.Fill>
+           <ImageBrush Source="avares://MinefieldGame.Common/Assets/res/submarine.jpg" />
+        </Rectangle.Fill>
+    </Rectangle>
 
     <ItemsControl ItemsSource="{Binding Mines}">
       <ItemsControl.ItemsPanel>
@@ -83,9 +86,12 @@
       </ItemsControl.ItemsPanel>
       <ItemsControl.ItemTemplate>
         <DataTemplate>
-           <Rectangle Width="{Binding Size.X}"
-                      Height="{Binding Size.Y}"
-                      Fill="{Binding Brush}" />
+          <Rectangle Width="{Binding Size.X}"
+                     Height="{Binding Size.Y}">
+            <Rectangle.Fill>
+              <ImageBrush Source="avares://MinefieldGame.Common/Assets/res/mine.jpg" />
+            </Rectangle.Fill>
+          </Rectangle>
         </DataTemplate>
       </ItemsControl.ItemTemplate>
       <ItemsControl.Styles>

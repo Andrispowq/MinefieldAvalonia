@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Avalonia", "MinefieldGame.Avalonia\MinefieldGame.Avalonia.csproj", "{7908CABC-3F67-4CAB-80E5-11E25AF1073B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Avalonia.Android", "MinefieldGame.Avalonia.Android\MinefieldGame.Avalonia.Android.csproj", "{EFC468E5-79AB-4E4B-91BC-53EE69511791}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Avalonia.Desktop", "MinefieldGame.Avalonia.Desktop\MinefieldGame.Avalonia.Desktop.csproj", "{552E2BFC-2F11-4427-8A79-1CDCA8305176}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Model", "MinefieldGame.Model\MinefieldGame.Model.csproj", "{FA612234-8594-4FAB-B456-D95C9283FC09}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Persistence", "MinefieldGame.Persistence\MinefieldGame.Persistence.csproj", "{CB56C985-0230-4B35-AEFE-CD85D2AF10E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Tests", "MinefieldGame.Tests\MinefieldGame.Tests.csproj", "{EEEB5107-ADAD-45A7-AD9C-2C280EDC816F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Common", "MinefieldGame.Common\MinefieldGame.Common.csproj", "{9A10C1D0-450B-4815-A513-354873B29BA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Common.Android", "MinefieldGame.Common.Android\MinefieldGame.Common.Android.csproj", "{07E09EF4-06DA-45F0-9777-AE850E5B89FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinefieldGame.Common.Desktop", "MinefieldGame.Common.Desktop\MinefieldGame.Common.Desktop.csproj", "{533FE72E-163C-4D86-BBEB-FD280300094D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,20 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7908CABC-3F67-4CAB-80E5-11E25AF1073B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7908CABC-3F67-4CAB-80E5-11E25AF1073B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7908CABC-3F67-4CAB-80E5-11E25AF1073B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7908CABC-3F67-4CAB-80E5-11E25AF1073B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFC468E5-79AB-4E4B-91BC-53EE69511791}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{552E2BFC-2F11-4427-8A79-1CDCA8305176}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA612234-8594-4FAB-B456-D95C9283FC09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FA612234-8594-4FAB-B456-D95C9283FC09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA612234-8594-4FAB-B456-D95C9283FC09}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +33,20 @@ Global
 		{EEEB5107-ADAD-45A7-AD9C-2C280EDC816F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEEB5107-ADAD-45A7-AD9C-2C280EDC816F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEEB5107-ADAD-45A7-AD9C-2C280EDC816F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A10C1D0-450B-4815-A513-354873B29BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A10C1D0-450B-4815-A513-354873B29BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A10C1D0-450B-4815-A513-354873B29BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A10C1D0-450B-4815-A513-354873B29BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E09EF4-06DA-45F0-9777-AE850E5B89FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E09EF4-06DA-45F0-9777-AE850E5B89FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E09EF4-06DA-45F0-9777-AE850E5B89FA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{07E09EF4-06DA-45F0-9777-AE850E5B89FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E09EF4-06DA-45F0-9777-AE850E5B89FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E09EF4-06DA-45F0-9777-AE850E5B89FA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{533FE72E-163C-4D86-BBEB-FD280300094D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533FE72E-163C-4D86-BBEB-FD280300094D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533FE72E-163C-4D86-BBEB-FD280300094D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533FE72E-163C-4D86-BBEB-FD280300094D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

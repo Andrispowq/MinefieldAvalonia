@@ -1,8 +1,6 @@
 ﻿using Avalonia.Controls;
-using Avalonia.Input;
-using System;
 
-namespace MinefieldGame.Avalonia.Views;
+namespace MinefieldGame.Common.Views;
 
 public partial class MainWindow : Window
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MinefieldGame.Avalonia.ViewModels
+namespace MinefieldGame.Common.ViewModels
 {
     public class DelegateCommand : ICommand
     {

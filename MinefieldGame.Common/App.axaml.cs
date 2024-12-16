@@ -6,30 +6,29 @@ using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using Avalonia.Platform.Storage;
-using MinefieldGame.Avalonia.ViewModels;
-using MinefieldGame.Avalonia.Views;
-using MinefieldGame.Model;
+using MinefieldGame.Avalonia;
+using MinefieldGame.Common.ViewModels;
+using MinefieldGame.Common.Views;
 using MinefieldGame.Model.Math;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
 using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.ObjectiveC;
+using System.IO;
+using System.Linq;
+using System.Resources;
 
-namespace MinefieldGame.Avalonia;
+namespace MinefieldGame.Common;
 
 public partial class App : Application
 {
-    private ImageBrush _submarineImage = null!;
-    private ImageBrush _mineImage = null!;
-
     private InputHandler _inputHandler = null!;
     private GameTimer _gameTimer = null!;
 
     private MinefieldGameViewModel _viewModel = null!;
 
-    private Point2D _gameBounds => new Point2D(1280, 720);
+    private Point2D _gameBounds;
 
     private TopLevel? TopLevel
     {
@@ -51,38 +50,24 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        // Line below is needed to remove Avalonia data validation.
-        // Without this line you will get duplicate validations from both Avalonia and CT
         BindingPlugins.DataValidators.RemoveAt(0);
-
-        _submarineImage = new ImageBrush();
-        try
-        {
-            _submarineImage.Source = new Bitmap(System.IO.Path.Combine(Environment.CurrentDirectory, "res", "submarine.jpg"));
-        }
-        catch
-        {
-            throw new Exception("ERROR: you need to have the res/submarine.png file next to the executable!");
-        }
-
-        _mineImage = new ImageBrush();
-        try
-        {
-            _mineImage.Source = new Bitmap(System.IO.Path.Combine(Environment.CurrentDirectory, "res", "mine.jpg"));
-        }
-        catch
-        {
-            throw new Exception("ERROR: you need to have the res/submarine.png file next to the executable!");
-        }
 
         _inputHandler = new InputHandler();
         _gameTimer = new GameTimer();
 
+        if (TopLevel != null)
+        {
+            var clientSize = TopLevel.ClientSize;
+            _gameBounds = new Point2D((int)clientSize.Width, (int)clientSize.Height);
+        }
+        else
+        {
+            _gameBounds = new Point2D(1280, 720);
+        }
+
         _viewModel = new MinefieldGameViewModel(_inputHandler, _gameTimer, _gameBounds);
         _viewModel.GameExited += GameExitedEvent;
-        _viewModel.GamePrepared += GamePreparedEvent;
         _viewModel.GameEnded += GameEndedEvent;
-        _viewModel.MineAdded += MineAddedEvent;
         _viewModel.SaveGame += SaveGame;
         _viewModel.LoadGame += LoadGame;
 
@@ -109,10 +94,25 @@ public partial class App : Application
                 DataContext = _viewModel
             };
 
+            view.InitAndroid(_inputHandler);
+            view.MenuEvent += OnMenuEvent;
+
             singleViewPlatform.MainView = view;
         }
 
         base.OnFrameworkInitializationCompleted();
+    }
+
+    private void OnMenuEvent(object? sender, bool menu)
+    {
+        if (menu)
+        {
+            _viewModel.StopGameCommand.Execute(null);
+        }
+        else
+        {
+            _viewModel.ContinueGameCommand.Execute(null);
+        }
     }
 
     private async void LoadGame(object? sender, EventArgs a)
@@ -241,16 +241,6 @@ public partial class App : Application
         }
     }
 
-    private void GamePreparedEvent(object? sender, EventArgs a)
-    {
-        _viewModel.Submarine!.Brush = _submarineImage;
-    }
-
-    private void MineAddedEvent(object? sender, MineViewModel mine)
-    {
-        mine.Brush = _mineImage;
-    }
-
     private void GameExitedEvent(object? sender, EventArgs a)
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
@@ -259,7 +249,8 @@ public partial class App : Application
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
-            //singleViewPlatform.MainView?.
+            singleViewPlatform.MainView = null;
         }
     }
 }
+  

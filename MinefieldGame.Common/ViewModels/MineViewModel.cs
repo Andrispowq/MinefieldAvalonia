@@ -1,4 +1,5 @@
 ﻿using Avalonia.Media;
+using MinefieldGame.Common.ViewModels;
 using MinefieldGame.Model.Math;
 using MinefieldGame.Model.Mines;
 using System;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MinefieldGame.Avalonia.ViewModels
+namespace MinefieldGame.Common.ViewModels
 {
     public class MineViewModel : ViewModelBase
     {

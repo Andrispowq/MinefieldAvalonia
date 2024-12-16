@@ -2,7 +2,7 @@
 
 using Avalonia;
 
-namespace MinefieldGame.Avalonia.Desktop;
+namespace MinefieldGame.Common.Desktop;
 
 class Program
 {

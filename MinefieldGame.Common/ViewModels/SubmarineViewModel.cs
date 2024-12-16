@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MinefieldGame.Avalonia.ViewModels
+namespace MinefieldGame.Common.ViewModels
 {
     public class SubmarineViewModel : ViewModelBase
     {
